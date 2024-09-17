@@ -20,12 +20,12 @@
 
 .fondo-principal {
     --background: #f8f8f8;
-    --padding-bottom: 1rem;
-    --padding-top: 1rem;
+    --padding-bottom: 0.5rem;
+    --padding-top: 0.5rem;
 }
 
 .input {
-    --background: #f8f8f8;
+    --background: #FFFFFF;
     --color: #0275d8;
     --placeholder-color: #4a4a4a;
     --placeholder-opacity: 0.8;
@@ -51,8 +51,16 @@
     width: 100%;
 }
 
+.cuentaCreada {
+    --background: #44cd00;
+    --color: #FFFFFF;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
 .msg-errorCredentials {
-    --background: #ff2a00;
+    --background: #ff9500;
     --color: #FFFFFF;
     margin-top: 10px;
     border-radius: 5px;

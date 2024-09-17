@@ -1,13 +1,33 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
+  <ion-toolbar class="navbar">
+    <ion-title><h1 class="titulo-nav">La Cuarta <ion-text color="primary">Duoc UC</ion-text></h1></ion-title>
   </ion-toolbar>
+  <ion-progress-bar type="indeterminate" *ngIf="loadingVisible"></ion-progress-bar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="fondo-principal items">
+  <br><br>
+  <ion-item class="fondo-principal" lines="none">
+    <ion-input class="input" [(ngModel)]="mdl_usuario" type="text" label="Usuario" fill="outline" labelPlacement="stacked" label-placement="floating" placeholder="Ingresa tu Usuario">
+      <ion-icon slot="start" name="person" aria-hidden="true"></ion-icon>
+    </ion-input>
+  </ion-item>
+  
+  <ion-item class="fondo-principal" lines="none">
+    <ion-input class="input" [(ngModel)]="mdl_contrasena" type="password" label="Contraseña" fill="outline" labelPlacement="stacked" label-placement="floating" placeholder="Ingresa tu Contraseña">
+      <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
+    </ion-input>
+  </ion-item>
+
+  <ion-item class="fondo-principal" lines="none">
+    <ion-button class="boton" (click)="toRegisterNavigation()" fill="outline" shape="round">Crear Cuenta</ion-button>
+    <ion-button class="boton" style="--color: white;" (click)="loginNavigation()" fill="solid" shape="round" *ngIf="ErrorCredenciales"> Iniciar Sesión</ion-button>
+  </ion-item>
+
+  <ion-item lines="none" class="fondo-errores">
+    <ion-item class="{{ errorStyle }}" lines="none" *ngIf="warningVisible">
+      {{ msgError }}
+    </ion-item>
+  </ion-item>
+
 </ion-content>

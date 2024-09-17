@@ -1,13 +1,131 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>main_page</ion-title>
+  <ion-toolbar class="navbar">
+    <ion-item lines="none" class="navbar">
+      <ion-title><h1 class="titulo-nav">La Cuarta <ion-text color="primary">Duoc UC</ion-text></h1></ion-title>
+      <ion-button size="large" fill="outline" (click)="cambiarClaveNavigation()">
+        <ion-icon slot="icon-only" name="lock-open"></ion-icon>
+      </ion-button >    
+      <ion-button size="large" style="margin-left: 0.8rem;" fill="outline" (click)="cerrarSesionNavigation()">
+        <ion-icon slot="icon-only" name="exit"></ion-icon>
+      </ion-button>
+    </ion-item>
   </ion-toolbar>
+  <ion-progress-bar type="indeterminate" *ngIf="loadingPage"></ion-progress-bar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">main_page</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding fondo">
+
+  <ion-item lines="none" class="fondo">
+    <ion-item class="bienvenida" lines="none" *ngIf="msgVisible">
+      {{ msgBienvenida }}<ion-text color="warning" class="textBienvenida">{{ extras_nombreCompleto }}</ion-text>
+    </ion-item>
+  </ion-item>
+
+<!-- Fiestas -->
+
+  <ion-card class="fondo-tarjeta">
+    <ion-card-content>
+      <h2 class="texto">¡¡Celebra con nosotros estas fiestas patrias 2024!!</h2>
+      <p class="texto">
+        Atención 100% Ovallino, Hoy no te puedes perder la experiencia más dieciochera. 
+        Juegos, música, comida típica y mucho más podrás encontrar y disfrutar juntos con tus compañeros.
+      </p>
+    </ion-card-content>
+    <img class="img-fiestas" alt="Imagen fiestas" src="assets/img/Fiestas-patrias.jpg" />
+
+<!-- Modal -->
+        
+  <ion-button class="fondo-boton" expand="block" (click)="setOpen(true)">Ver más</ion-button>
+
+   <ion-modal class="fondo-modal" [isOpen]="isModalOpen">
+      <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>Fiestas Patrias</ion-title>
+                <ion-buttons slot="end">
+                  <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+        <ion-content class="ion-padding">
+              <p class="texto-modal">
+                ¡Celebra con nosotros las Fiestas Patrias de Chile el próximo 10 de septiembre en nuestra sede! Desde las 18:00 hasta las 19:30, 
+                te invitamos a disfrutar de una tarde festiva llena de sabor y alegría. Tendremos una variedad de jugos tradicionales y muchas 
+                sorpresas, incluyendo un sorteo de premios para todos los asistentes. Ven a compartir un momento especial
+                y a celebrar nuestras raíces en un ambiente cálido y festivo. <br><br>
+                
+                ¡No faltes a esta gran celebración patria! ¡Te esperamos! 
+               
+              </p>
+           </ion-content>
+        </ng-template>
+      </ion-modal>
+  </ion-card>
+
+
+<!-- Familiar -->
+
+<ion-card class="fondo-tarjeta">
+
+  <ion-card-content>
+
+    <h2 class="texto"> ¡¡Atención Comunidad!! </h2>
+
+  <p class="texto">    
+    Te invitamos a participar este sábado 07 de septiembre, de 11:00 a 14:00 hrs, ven a disfrutar con tus hijos
+    un día lleno de alegría y diversión para toda la familia. Tendremos como invitado especial a la banda "COMO MONOS", un increíble
+    tributo a 31 minutos.<br><br>
+
+    ¡Te esperamos con los brazos abiertos!
+
+  </p>
+  </ion-card-content>
+
+  <img class="img-familiar "alt="Imagen familiar" src="assets/img/Familiar.png" />
+
+</ion-card>
+
+
+<!-- Aniversario-->
+
+<ion-card class="fondo-tarjeta">
+
+  <ion-card-content>
+
+    <h2 class="texto">¡¡Aniversario Duoc UC!!</h2>
+
+    <p class="texto">
+     Te invitamos a la celabración de los 55 años de Duoc UC que se viene con todo. <br>
+     Pasa un momento de mucha alegría con tus amigos y compañeros. <br><br>
+     ¡¡Te esperamos!!
+    </p>
+  </ion-card-content>
+
+  <img class="img-aniversario "alt="Imagen aniversario" src="assets/img/Aniversario.png" />
+</ion-card>
+ 
+<!-- Lider-->
+
+<ion-card class="fondo-tarjeta">
+
+  <ion-card-content>
+
+    <h2 class="texto">¡¡Puedes ser el lider de tu futuro!!</h2>
+
+    <p class="texto">
+     No pierdas la oportunidad de desarrollar todas las herramientas para ser el líder de tu futuro. participar
+     del programa del liderazgo, inscríbete en algunos de los talleres que tenemos para ti, donde podrás encontar una esperencia
+     en la que desarrolles todas las herramientas de un gran lider.<br>
+ 
+     ¡¡No pierdas esta gran oportunidad!!
+ 
+    </p>
+  </ion-card-content>
+
+  <img class="img-lider "alt="Imagen lider" src="assets/img/Lider.png" />
+
+
+</ion-card>
+
+ 
 </ion-content>

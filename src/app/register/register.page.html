@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="navbar">
+    <ion-title><h1 class="titulo-nav">Creación de Cuentas</h1></ion-title>
+  </ion-toolbar>
+  <ion-progress-bar type="indeterminate" *ngIf="loadingPage"></ion-progress-bar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondo-principal items">
+  <ion-item lines="none" class="fondo-principal">
+    <ion-item class="{{ msgStyle }}" lines="none" *ngIf="warningVisibleRegistro">
+      {{ errorMsg }}
+    </ion-item>
+  </ion-item>
+
+  <ion-item lines="none" class="fondo-principal">
+    <ion-input class="input" [(ngModel)]="mdl_nombreCompleto" type="text" label="Nombre Completo" labelPlacement="stacked" label-placement="floating" fill="outline" placeholder="Nombre Completo">
+      <ion-icon slot="start" name="text" aria-hidden="true"></ion-icon>
+    </ion-input>
+  </ion-item>
+  <br>
+  <ion-item lines="none" class="fondo-principal">
+    <ion-input class="input" [(ngModel)]="mdl_usuario" type="text" label="Usuario" labelPlacement="stacked" label-placement="floating" fill="outline" placeholder="Usuario">
+      <ion-icon slot="start" name="person" aria-hidden="true"></ion-icon>
+    </ion-input>
+  </ion-item>
+  <br>
+  <ion-item lines="none" class="fondo-principal">
+    <ion-input class="input" [(ngModel)]="mdl_correo" type="email" label="Correo" labelPlacement="stacked" label-placement="floating" fill="outline" placeholder="Correo">
+      <ion-icon slot="start" name="mail" aria-hidden="true"></ion-icon>
+    </ion-input>
+  </ion-item>
+  <br>
+  <ion-item lines="none" class="fondo-principal">
+    <ion-input class="input" [(ngModel)]="mdl_contrasena" type="password" label="Contraseña" labelPlacement="stacked" label-placement="floating" fill="outline" placeholder="Contraseña">
+      <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
+    </ion-input>
+  </ion-item>
+  <br>
+
+  <ion-item class="fondo-principal" lines="none">
+    <ion-button class="boton" (click)="backToLoginNavigation()" fill="outline" shape="round">Volver al Login</ion-button>
+    <ion-button class="boton" style="--color: white;" (click)="registerNavigation()" fill="solid" shape="round">Crear Cuenta</ion-button>
+  </ion-item>
+
+</ion-content>
